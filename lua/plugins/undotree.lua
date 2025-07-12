@@ -7,6 +7,10 @@ return {
             vim.g.undotree_DiffCommand = "FC"
         end
 
-        vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+        vim.g.undotree_SetFocusWhenToggle = true;
+        vim.g.undotree_WindowLayout = 3;
+        vim.g.undotree_WindowLayout = 3;
+        vim.g.undotree_SplitWidth = 40;
+        vim.g.undotree_DiffpanelHeight = 20;
     end
 }
