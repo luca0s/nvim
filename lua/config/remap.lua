@@ -53,3 +53,5 @@ vim.keymap.set("n", "<leader>u", function()
     vim.cmd("NvimTreeClose")
     vim.cmd("UndotreeToggle")
 end, opts)
+
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', opts)
