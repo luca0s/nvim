@@ -34,5 +34,7 @@ return {
     { "<leader>u",  function() Snacks.picker.undo() end },
     -- bufdelete
     { "<leader>bd", function() Snacks.bufdelete.delete() end },
+    -- lazygit
+    { "<leader>lg", function() Snacks.lazygit() end },
   },
 }
