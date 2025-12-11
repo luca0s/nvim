@@ -1,1 +1,1 @@
-Neovim Config using here: https://youtu.be/IZnhl121yo0
+Config based on this repo https://github.com/adibhanna/minimal-vim

@@ -23,7 +23,7 @@ return {
                     },
                 },
                 keymap = {
-                    ["<C-f>"] = {},
+                    preset = 'super-tab',
                 },
                 cmdline = {
                     enabled = false,
