@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
         map("K", vim.lsp.buf.hover, "Hover Documentation")
         map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
-        map("gd", vim.lsp.buf.definition, "Signature Documentation")
+        map("gd", vim.lsp.buf.definition, "Goto Definition")
         map("gD", vim.lsp.buf.declaration, "Goto Declaration")
         map("ga", vim.lsp.buf.code_action, "Code Action")
         map("gr", vim.lsp.buf.rename, "Rename all references")
