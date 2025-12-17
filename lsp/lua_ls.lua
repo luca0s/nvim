@@ -23,6 +23,14 @@ return {
 	--     },
 	-- },
 
-	single_file_support = true,
+
+	-- disable for premake files
 	log_level = vim.lsp.protocol.MessageType.Warning,
+	on_attach = function(client, bufnr)
+		local fname = vim.api.nvim_buf_get_name(bufnr):match("[^/\\]+$")
+		if fname:match("^premake.*%.lua$") then
+			client.stop()
+			return
+		end
+	end,
 }
