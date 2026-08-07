@@ -14,6 +14,9 @@ end, {
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
+
+require("statusline")
+require("terminal")
 require("telescope")
 require("options")
 require("colorscheme")

@@ -45,3 +45,17 @@ map("n", "<leader>fs", builtin.lsp_document_symbols)
 map("n", "<leader>fd", builtin.diagnostics)
 map("n", "<leader>fp", builtin.git_files)
 map("n", "<leader>fh", builtin.help_tags)
+
+-- Terminal
+local term = require("terminal")
+
+map({ "n", "t" }, "<C-t>", term.toggle, {
+	silent = true,
+	desc = "Toggle bottom terminal",
+})
+
+-- Escape terminal mode without closing the terminal.
+map("t", "<Esc>", [[<C-\><C-n>]], {
+	silent = true,
+	desc = "Leave terminal mode",
+})
