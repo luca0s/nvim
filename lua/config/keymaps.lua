@@ -4,6 +4,9 @@ local function map(lhs, rhs, cmd, opts)
 	vim.keymap.set(lhs, rhs, cmd, final_opts)
 end
 
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
@@ -73,6 +76,6 @@ end, {
 })
 
 -- Buffers and Tabs
-map("n", "<S-h>", ":bprevious<CR>")
-map("n", "<S-l>", ":bnext<CR>")
+map("n", "<C-h>", ":bprevious<CR>")
+map("n", "<C-l>", ":bnext<CR>")
 map("n", "<leader>bd", ":bdelete<CR>")
