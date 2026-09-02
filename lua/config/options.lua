@@ -7,3 +7,5 @@ vim.o.softtabstop = 4
 vim.o.signcolumn = "yes"
 vim.o.undofile = true
 vim.o.updatetime = 300
+vim.o.cursorline = true
+vim.o.scrolloff = 10

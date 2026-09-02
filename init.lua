@@ -1,10 +1,9 @@
 vim.g.mapleader = " "
 
--- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 
---
 vim.api.nvim_create_user_command("Config", function()
 	vim.cmd("cd " .. vim.fn.fnameescape(vim.fn.stdpath("config")))
 	vim.notify("Working directory: " .. vim.fn.getcwd())
@@ -12,17 +11,18 @@ end, {
 	desc = "Change directory to the Neovim config",
 })
 
--- optionally enable 24-bit colour
-vim.opt.termguicolors = true
+require("config.options")
+require("config.colorscheme")
+require("config.statusline")
+require("config.terminal")
 
-require("statusline")
-require("terminal")
-require("telescope")
-require("options")
-require("colorscheme")
-require("nvimtree")
-require("undo_tree")
-require("lsp")
-require("format")
-require("completion")
-require("keymaps")
+require("plugins.telescope")
+require("plugins.nvimtree")
+require("plugins.undotree")
+require("plugins.lsp")
+require("plugins.format")
+require("plugins.completion")
+require("plugins.bufferline")
+require("plugins.nvim-treesitter")
+
+require("config.keymaps")

@@ -24,11 +24,6 @@ map("n", "X", [["_X]], { desc = "Discard cuts in normal mode" })
 map("v", "x", [["+x]], { desc = "Copy cuts to system clipboard in visual mode" })
 map("v", "X", [["+X]], { desc = "Copy cuts to system clipboard in visual mode" })
 
-map("n", "<C-h>", "<C-w><C-h>")
-map("n", "<C-j>", "<C-w><C-j>")
-map("n", "<C-k>", "<C-w><C-k>")
-map("n", "<C-l>", "<C-w><C-l>")
-
 -- Undotree
 map("n", "<leader>u", function()
 	require("undotree").toggle()
@@ -40,14 +35,15 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>")
 -- Telescope
 local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files)
-map("n", "<leader>fg", builtin.grep_string)
+map("n", "<leader>fg", builtin.live_grep)
 map("n", "<leader>fs", builtin.lsp_document_symbols)
 map("n", "<leader>fd", builtin.diagnostics)
 map("n", "<leader>fp", builtin.git_files)
+map("n", "<leader>fb", builtin.buffers)
 map("n", "<leader>fh", builtin.help_tags)
 
 -- Terminal
-local term = require("terminal")
+local term = require("config.terminal")
 
 map({ "n", "t" }, "<C-t>", term.toggle, {
 	silent = true,
@@ -59,3 +55,24 @@ map("t", "<Esc>", [[<C-\><C-n>]], {
 	silent = true,
 	desc = "Leave terminal mode",
 })
+
+-- Lsp
+map("n", "gd", vim.lsp.buf.definition)
+map("n", "gD", vim.lsp.buf.declaration)
+map("n", "ca", function()
+	local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+
+	vim.lsp.buf.code_action({
+		range = {
+			start = { line, 0 },
+			["end"] = { line + 1, 0 },
+		},
+	})
+end, {
+	desc = "Code actions for current line",
+})
+
+-- Buffers and Tabs
+map("n", "<S-h>", ":bprevious<CR>")
+map("n", "<S-l>", ":bnext<CR>")
+map("n", "<leader>bd", ":bdelete<CR>")

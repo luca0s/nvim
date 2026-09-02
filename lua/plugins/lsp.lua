@@ -3,16 +3,20 @@ vim.pack.add({
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
 	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
+	{ src = "https://github.com/nvim-mini/mini.pick" },
 })
 
+require("mini.pick").setup()
 require("mason").setup()
-require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
 	ensure_installed = {
 		"lua_ls",
 		"stylua",
+		"clangd",
+		"glsl_analyzer",
 	},
 })
+require("mason-lspconfig").setup()
 
 vim.diagnostic.config({
 	virtual_text = {
